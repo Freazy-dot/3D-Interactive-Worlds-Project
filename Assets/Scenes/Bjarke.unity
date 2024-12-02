@@ -789,7 +789,7 @@ MonoBehaviour:
   attackCooldown: 0
   attackCooldownDuration: 1
   specialCooldown: 15
-  armor: 10
+  armor: 0
 --- !u!136 &1073932827
 CapsuleCollider:
   m_ObjectHideFlags: 0

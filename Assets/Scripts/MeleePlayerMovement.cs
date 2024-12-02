@@ -29,19 +29,16 @@ public class MeleePlayerMovement : PlayerMovement
 
     protected override void Jump(CharacterController controller, float jumpInput)
     {
-        // Check if the player is grounded
+        
         if (controller.isGrounded)
         {
             if (velocity.y < 0)
-                velocity.y = -2f; // Reset vertical velocity when grounded
+                velocity.y = -2f; 
 
-            Debug.Log("Grounded");
-
-            // Apply jump force if jump button is pressed
+            
             if (jumpInput > 0)
             {
                 velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
-                Debug.Log("Jumping");
             }
         }
 

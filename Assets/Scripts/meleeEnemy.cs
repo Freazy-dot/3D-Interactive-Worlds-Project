@@ -3,7 +3,13 @@ using UnityEngine;
 
 public class meleeEnemy : Enemy
 {
+    private GameObject meleePlayer;
 
+
+private void Start() 
+    {
+        meleePlayer = GameObject.FindWithTag("Player");
+    }
     private void Update() 
     {
       if (attackCooldown > 0)

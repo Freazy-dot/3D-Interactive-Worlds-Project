@@ -35,7 +35,7 @@ public class MeleePlayerAttributes : PlayerAttributes
             if (enemy != null)
             {
             // Apply damage to the enemy
-            enemy.TakeDamage(attackDamage);
+            ApplyDamage(enemy);
             Debug.Log("Enemy hit");
             }
         }
@@ -43,6 +43,12 @@ public class MeleePlayerAttributes : PlayerAttributes
     private void meleeSpecial()
     {
         // Special attack logic
+    }
+
+    private void ApplyDamage(Enemy enemy)
+    {
+        enemy.TakeDamage(attackDamage);
+        Debug.Log("Enemy hit.");
     }
 
 }

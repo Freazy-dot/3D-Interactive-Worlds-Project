@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    [SerializeField]protected float health;
+    [SerializeField]protected float health = 100f;
     [SerializeField]protected float speed;
     [SerializeField]protected float range;
     [SerializeField]protected float baseDamage;
@@ -10,21 +10,25 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField]protected float attackCooldownDuration;
     [SerializeField]protected float specialCooldown;
     [SerializeField]protected float armor;
+    public float Health => health; // Getter for health
+
    
     public abstract void Attack();
 
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float attackDamage)
     {
-        health -= damage - armor;
+        float damage = attackDamage - armor;
+        health -= damage > 0 ? damage : 0;
 
-        if(health <= 0)
+        Debug.Log($"{this.name} took {damage} damage, {health} health remaining.");
+
+        if (health <= 0)
         {
             Die();
-
         }
     }
 
-    private void Die()
+    protected virtual void Die()
     {
         Debug.Log($"{this.name} died.");
         Destroy(gameObject);
