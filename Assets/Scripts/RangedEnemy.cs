@@ -12,6 +12,10 @@ private float targetUpdateTimer;
     {
         players = GameObject.FindGameObjectsWithTag("Player");
 
+        foreach (GameObject player in players) {
+            Debug.Log(player.name);
+        }
+
         if (players == null) {
             Debug.LogError("No players found");
         }
@@ -21,15 +25,14 @@ private float targetUpdateTimer;
         }
     }
 
-    private void Update() 
+    private void FixedUpdate() 
     {
+        if (this.isDead) return;
+
         if (attackCooldown > 0) {
             attackCooldown -= Time.deltaTime;
         }
-    }
 
-    private void FixedUpdate() 
-    {
         CheckForPlayer();
         MoveTowardsPlayer();
 
@@ -53,7 +56,7 @@ private float targetUpdateTimer;
     public override void Attack()
     {
         Debug.Log("rangedEnemy Attacks");
-        // target.TakeDamage(baseDamage);
+        target.GetComponent<Player>().TakeDamage(baseDamage);
     }
 
      private void CheckForPlayer()
