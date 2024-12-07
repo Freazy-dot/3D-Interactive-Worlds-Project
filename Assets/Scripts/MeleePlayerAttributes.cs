@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MeleePlayerAttributes : PlayerAttributes
+public class MeleePlayerAttributes : Player
 {
     public InputActionAsset inputActions;
     private InputAction attackAction;
