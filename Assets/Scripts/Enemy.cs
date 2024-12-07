@@ -7,9 +7,10 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField]protected int speed;
     [SerializeField]protected int range;
     [SerializeField]protected int baseDamage;
-    [SerializeField]protected int attackCooldown;
-    [SerializeField]protected int attackCooldownDuration;
-    [SerializeField]protected int specialCooldown;
+    [SerializeField]protected float attackCooldown;
+    [SerializeField]protected float attackCooldownDuration;
+    [SerializeField]protected float specialCooldown;
+    [SerializeField]protected float specialCooldownDuration;
     [SerializeField]protected int armor; 
     // damage reduction; 100 armor = base damage; 50 armor = base damage / 0.5; 150 armor = base damage / 1.5
    
