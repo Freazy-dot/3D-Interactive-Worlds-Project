@@ -4,10 +4,6 @@ public class MeleePlayerAttributes : PlayerAttributes
 {
     private string attackButton = "Attack";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -16,7 +12,6 @@ public class MeleePlayerAttributes : PlayerAttributes
         {
             meleeAttack();
             attackCooldown = Time.time + attackCooldownDuration;
-            Debug.Log("Melee attack");
         }
 
     }
