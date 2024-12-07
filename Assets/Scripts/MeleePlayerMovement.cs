@@ -3,6 +3,7 @@ using UnityEngine;
 public class MeleePlayerMovement : PlayerMovement
 {
     private Vector3 velocity;
+    private float mouseSensitivity = 100f;
     private readonly float gravity = -9.81f;
     private CharacterController controller;
 
@@ -17,6 +18,7 @@ public class MeleePlayerMovement : PlayerMovement
         float jumpInput = Input.GetAxis("Jump");
         Move(controller, moveInput);
         Jump(controller, jumpInput);
+        RotateWithMouse();
     }
 
     protected override void Move(CharacterController controller, float moveInput)
@@ -26,7 +28,19 @@ public class MeleePlayerMovement : PlayerMovement
         Vector3 move = (controller.transform.right * moveHorizontal + controller.transform.forward * moveVertical) * speed;
         controller.Move(move * Time.deltaTime);
     }
+private void RotateWithMouse()
+{
+    float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+    float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
+    Vector3 rotation = controller.transform.localEulerAngles;
+    rotation.y += mouseX;
+    controller.transform.localEulerAngles = rotation;
+
+    // Optionally, you can also rotate the camera up and down
+    // by modifying the camera's local rotation
+    // cameraTransform.localEulerAngles = new Vector3(-mouseY, rotation.y, 0);
+}
     protected override void Jump(CharacterController controller, float jumpInput)
     {
         
