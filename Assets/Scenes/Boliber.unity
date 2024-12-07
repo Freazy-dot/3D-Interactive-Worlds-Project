@@ -493,6 +493,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 328901052046688074, guid: aad3f69a469687f4e9f0aca7c2a50fba, type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 9013297919108679802, guid: 12854a32c7cde75498c14a2f9c02e17f, type: 3}
     - target: {fileID: 1795021525122217157, guid: aad3f69a469687f4e9f0aca7c2a50fba, type: 3}
       propertyPath: m_Name
       value: MeleePlayer
