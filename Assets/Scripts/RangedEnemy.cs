@@ -53,6 +53,7 @@ private float targetUpdateTimer;
     public override void Attack()
     {
         Debug.Log("rangedEnemy Attacks");
+        // target.TakeDamage(baseDamage);
     }
 
      private void CheckForPlayer()

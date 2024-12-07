@@ -12,18 +12,19 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField]protected float specialCooldown;
     [SerializeField]protected float specialCooldownDuration;
     [SerializeField]protected int armor; 
-    // damage reduction; 100 armor = base damage; 50 armor = base damage / 0.5; 150 armor = base damage / 1.5
+    // damage reduction; 100 armor = base damage; 0 armor = 2 x base damage; 200 armor = half of base damage
    
     public abstract void Attack();
 
-    public virtual void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         if (armor <= 0){
             health -= damage * 2;
         }
 
         else {
-            damage = (int)Math.Round(damage * (double)(2 - (100.0 / armor)));
+            damage = (int)Math.Round(damage * (double)(200.0 / (100.0 + armor)));
+
             health -= damage > 0 ? damage : 0;
         }
 
@@ -34,7 +35,7 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    protected virtual void Die()
+    protected void Die()
     {
         Debug.Log($"{this.name} died.");
         Destroy(gameObject);

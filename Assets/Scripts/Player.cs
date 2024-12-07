@@ -1,6 +1,7 @@
 using UnityEngine;
+using System;
 
-public class PlayerAttributes : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField]protected float attackCooldown;
     [SerializeField]protected float attackCooldownDuration;
@@ -11,12 +12,20 @@ public class PlayerAttributes : MonoBehaviour
     [SerializeField]protected float range;
     [SerializeField]protected int attackDamage;
 
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(int damage)
     {
-        health -= damage - armor;
+        if (armor <= 0){
+            health -= damage * 2;
+        }
 
-        if(health <= 0)
-        {
+        else {
+            damage = (int)Math.Round(damage * (double)(2 - (100.0 / armor)));
+            health -= damage > 0 ? damage : 0;
+        }
+
+        Debug.Log($"{this.name} took {damage} damage, {health} health remaining.");
+
+        if (health <= 0) {
             Die();
         }
     }
