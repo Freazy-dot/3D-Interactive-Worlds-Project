@@ -8,6 +8,7 @@ public class MeleePlayerAttributes : PlayerAttributes
     private InputAction attackAction;
     private InputAction specialAction;
     private Animator animator;
+    [SerializeField]private ParticleSystem specialAttackEffect;
     private void Awake()
     {
         animator = transform.Find("swordfix").GetComponent<Animator>();
@@ -83,6 +84,7 @@ public class MeleePlayerAttributes : PlayerAttributes
         int hits = 10;
         float duration = 2.0f;
         float interval = duration / hits;
+        specialAttackEffect.Play();
 
         for (int i = 0; i < hits; i++)
         {
