@@ -9,7 +9,7 @@ public class PlayerAttributes : MonoBehaviour
     [SerializeField]protected float armor;
     [SerializeField]protected float health;
     [SerializeField]protected float range;
-    [SerializeField]protected float attackDamage;
+    [SerializeField]protected int attackDamage;
 
     public void TakeDamage(float damage)
     {
