@@ -5,6 +5,7 @@ public class PlayerAttributes : MonoBehaviour
     [SerializeField]protected float attackCooldown;
     [SerializeField]protected float attackCooldownDuration;
     [SerializeField]protected float specialCooldown;
+    [SerializeField]protected float specialCooldownDuration;
     [SerializeField]protected float armor;
     [SerializeField]protected float health;
     [SerializeField]protected float range;

@@ -1,24 +1,47 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MeleePlayerAttributes : PlayerAttributes
 {
-    private string attackButton = "Attack";
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public InputActionAsset inputActions;
+    private InputAction attackAction;
+    private InputAction specialAction;
+    private void Awake()
+    {
+        attackAction = inputActions.FindAction("Attack");
+        specialAction = inputActions.FindAction("Interact");
+    }
+
+    private void OnEnable()
+    {
+        attackAction.Enable();
+        specialAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        attackAction.Disable();
+        specialAction.Disable();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown(attackButton) && Time.time > attackCooldown)
+        if (attackAction.triggered && Time.time > attackCooldown)
         {
             meleeAttack();
             attackCooldown = Time.time + attackCooldownDuration;
         }
-
+        if (specialAction.triggered && Time.time > specialCooldown)
+        {
+            meleeSpecial();
+            specialCooldown = Time.time + specialCooldownDuration;
+        }
     }
 
     private void meleeAttack()
     {
-
         // Perform a raycast to check for enemies in front of the player
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, range))
@@ -29,15 +52,18 @@ public class MeleePlayerAttributes : PlayerAttributes
             Enemy enemy = hit.collider.GetComponent<Enemy>();
             if (enemy != null)
             {
-            // Apply damage to the enemy
-            ApplyDamage(enemy);
-            Debug.Log("Enemy hit");
+                // Apply damage to the enemy
+                ApplyDamage(enemy);
+                Debug.Log("Enemy hit");
             }
         }
     }
+
     private void meleeSpecial()
     {
         // Special attack logic
+        StartCoroutine(ChannelMeleeAttack());
+        Debug.Log("Special attack coroutine started.");
     }
 
     private void ApplyDamage(Enemy enemy)
@@ -46,4 +72,17 @@ public class MeleePlayerAttributes : PlayerAttributes
         Debug.Log("Enemy hit.");
     }
 
+    private IEnumerator ChannelMeleeAttack()
+    {
+        int hits = 10;
+        float duration = 2.0f;
+        float interval = duration / hits;
+
+        for (int i = 0; i < hits; i++)
+        {
+            meleeAttack();
+            yield return new WaitForSeconds(interval);
+            Debug.Log("Special attack hit.");
+        }
+    }
 }
