@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
         Debug.Log($"{this.name} died.");
         isDead = true;
 
+    /*
         CharacterController characterController = GetComponent<CharacterController>();
         if (characterController == null) {
             Debug.LogWarning("No CharacterController component found.");
@@ -47,6 +48,7 @@ public class Player : MonoBehaviour
         }
 
         characterController.enabled = false;
+    */
 
         MeshRenderer renderer = GetComponent<MeshRenderer>();
         Collider collider = GetComponent<Collider>();
@@ -57,7 +59,7 @@ public class Player : MonoBehaviour
             return;
         }
 
-        // renderer.enabled = false;
+        renderer.enabled = false;
         collider.enabled = false;
 
         if (deathEffect == null) {
