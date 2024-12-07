@@ -7,8 +7,10 @@ public class MeleePlayerAttributes : PlayerAttributes
     public InputActionAsset inputActions;
     private InputAction attackAction;
     private InputAction specialAction;
+    private Animator animator;
     private void Awake()
     {
+        animator = transform.Find("swordfix").GetComponent<Animator>();
         attackAction = inputActions.FindAction("Attack");
         specialAction = inputActions.FindAction("Interact");
     }
@@ -32,6 +34,7 @@ public class MeleePlayerAttributes : PlayerAttributes
         {
             meleeAttack();
             attackCooldown = Time.time + attackCooldownDuration;
+          
         }
         if (specialAction.triggered && Time.time > specialCooldown)
         {
@@ -40,8 +43,11 @@ public class MeleePlayerAttributes : PlayerAttributes
         }
     }
 
+
     private void meleeAttack()
     {
+        animator.SetBool("Attack", true);
+        Debug.Log("Melee attack");
         // Perform a raycast to check for enemies in front of the player
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, range))
