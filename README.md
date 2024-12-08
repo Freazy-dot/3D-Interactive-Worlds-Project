@@ -26,7 +26,6 @@ It contains character and camera movement scripts, using the transform component
 | Task                                              | Time it Took (in hours) |
 |---------------------------------------------------|-------------------------|
 | Setting up Unity, making a project in GitHub      | 0.5                     |
-|                                                   |                         |
 | Research and conceptualization of game idea       | 2                       |
 | Basic Enemy Function, Move towards player, attack, etc. | 1                |
 | Basic Melee Player Movement, Jumping              | 1                       |
