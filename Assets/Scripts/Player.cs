@@ -30,32 +30,23 @@ public class Player : MonoBehaviour
     {
         Points.Instance.LevelUp += LevelUp;
 
-        upgradeMenu = GameObject.Find("UpgradeMenu");
-        armorButton = GameObject.Find("Armor").GetComponent<Button>();
-        healthButton = GameObject.Find("Health").GetComponent<Button>();
-        damageButton = GameObject.Find("Damage").GetComponent<Button>();
-
-        armorButton.onClick.AddListener(() => Upgrade("Armor"));
-        healthButton.onClick.AddListener(() => Upgrade("Health"));
-        damageButton.onClick.AddListener(() => Upgrade("Damage"));
-
         upgradeMenu.SetActive(false);
     }
     
 
-    private void Upgrade(string upgradeType)
+    public void Upgrade(int upgradeType)
     {
         switch (upgradeType)
         {
-            case "Armor":
+            case 1:
                 armor += armor * 0.2f;
                 Debug.Log("Armor upgraded!");
                 break;
-            case "Health":
+            case 2:
                 health += 100;
                 Debug.Log("Health upgraded!");
                 break;
-            case "Damage":
+            case 3:
                 attackDamage += attackDamage * 0.2f;
                 Debug.Log("Damage upgraded!");
                 break;
