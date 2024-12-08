@@ -30,6 +30,7 @@ It contains character and camera movement scripts, using the transform component
 | Basic Enemy Function, Move towards player, attack, etc. | 1                |
 | Basic Melee Player Movement, Jumping              | 1                       |
 | Basic Melee Player Attack                         | 1                       |
+| Making Sword Model in Blender                         | 2                       |
 | Inserting Model for Sword for Melee Player + Animations | 2                  |
 | Special Attack Melee + Particle System            | 1                       |
 | Arena Level Design                                | 0.5                     |
