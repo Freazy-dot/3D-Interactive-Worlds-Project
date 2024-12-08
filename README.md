@@ -46,7 +46,7 @@ It contains character and camera movement scripts, using the transform component
 |------------------------------------------------|--------------------------|
 | Setting up Unity, making a project in GitHub  | 0.5                      |
 | Research and conceptualization of game idea   | 2                        |
-| Enemy / Friendly attributes; health, armor, and damage | 3                 |
+| Enemy / Friendly attributes; health, armor, and damage | 2                 |
 | Ranged Enemy                                   | 1                        |
 | Ranged Friendly                                | 3                        |
 | Particle Death Animation                       | 2                        |
@@ -54,4 +54,4 @@ It contains character and camera movement scripts, using the transform component
 | Health Bars                                    | 2                        |
 | Main Menu and Character Select Screen         | 0.5                      |
 | Bug Fixing                                     | 1.5                      |
-| **ALL**                                       | **16.5**                   |
+| **ALL**                                       | **15.5**                   |
