@@ -36,5 +36,5 @@ It contains character and camera movement scripts, using the transform component
 | Enemy Spawning                                    | 1.5                     |
 | Start Menu & Character Select                     | 1                       |
 | Camera Movement + Player Rotation                 | 0.5                     |
-| **ALL**                                           |                         |
+| **ALL**                                           |   12                      |
 
