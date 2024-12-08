@@ -53,4 +53,5 @@ It contains character and camera movement scripts, using the transform component
 | Ranged Friendly Special Particle Animation    | 1                        |
 | Health Bars                                    | 2                        |
 | Main Menu and Character Select Screen         | 0.5                      |
-| **ALL**                                       | **15**                   |
+| Bug Fixing                                     | 1.5                      |
+| **ALL**                                       | **16.5**                   |
