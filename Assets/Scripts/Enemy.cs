@@ -16,6 +16,7 @@ public abstract class Enemy : MonoBehaviour
    
     [SerializeField]protected GameObject deathEffect;
     protected bool isDead = false;
+    private int accumulatedDamage;
 
     public abstract void Attack();
 
@@ -23,12 +24,14 @@ public abstract class Enemy : MonoBehaviour
     {
         if (isDead) return;
 
+        accumulatedDamage += damage;
+
         if (armor <= 0){
             health -= damage * 2;
         }
 
         else {
-            damage = (int)Math.Round(damage * (double)(200.0 / (100.0 + armor)));
+            damage = (int)Math.Round(damage * (double)(200.0 / (100.0 + armor))); // magic
             health -= damage > 0 ? damage : 0;
         }
 
@@ -43,6 +46,7 @@ public abstract class Enemy : MonoBehaviour
     {
         Debug.Log($"{this.name} died.");
         isDead = true;
+        Points.Instance.AddPoints(accumulatedDamage);
     /* 
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb == null) {

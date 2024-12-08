@@ -1,18 +1,72 @@
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]protected float attackCooldown;
+
+    // player stats
+    protected float attackCooldown;
     [SerializeField]protected float attackCooldownDuration;
-    [SerializeField]protected float specialCooldown;
+    protected float specialCooldown;
     [SerializeField]protected float specialCooldownDuration;
     [SerializeField]protected float armor;
     [SerializeField]protected float health;
     [SerializeField]protected float range;
-    [SerializeField]protected int attackDamage;
+    [SerializeField]protected float attackDamage;
     [SerializeField]protected GameObject deathEffect;
+
+    // upgrade stats
+
+    [SerializeField] private GameObject upgradeMenu;
+    [SerializeField] private Button armorButton;
+    [SerializeField] private Button healthButton;
+    [SerializeField] private Button damageButton;
+
+    // misc
     private bool isDead = false;
+
+    public void Start()
+    {
+        Points.Instance.LevelUp += LevelUp;
+
+        armorButton.onClick.AddListener(() => Upgrade("Armor"));
+        healthButton.onClick.AddListener(() => Upgrade("Health"));
+        damageButton.onClick.AddListener(() => Upgrade("Damage"));
+
+        upgradeMenu.SetActive(false);
+    }
+
+    private void Upgrade(string upgradeType)
+    {
+        switch (upgradeType)
+        {
+            case "Armor":
+                armor += armor * 0.2f;
+                Debug.Log("Armor upgraded!");
+                break;
+            case "Health":
+                health += 100;
+                Debug.Log("Health upgraded!");
+                break;
+            case "Damage":
+                attackDamage += attackDamage * 0.2f;
+                Debug.Log("Damage upgraded!");
+                break;
+        }
+
+        upgradeMenu.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
+
+    public void LevelUp(int points)
+    {
+        Debug.Log($"Player leveled up! Points: {points}");
+
+        upgradeMenu.SetActive(true);
+
+        Time.timeScale = 0.0f;
+    }
 
     public virtual void TakeDamage(int damage)
     {

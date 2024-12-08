@@ -75,7 +75,7 @@ public class MeleePlayerAttributes : Player
 
     private void ApplyDamage(Enemy enemy)
     {
-        enemy.TakeDamage(attackDamage);
+        enemy.TakeDamage((int)attackDamage);
         Debug.Log("Enemy hit.");
     }
 
