@@ -135,6 +135,7 @@ MonoBehaviour:
   specialCooldown: 15
   specialCooldownDuration: 0
   armor: 0
+  deathEffect: {fileID: 9013297919108679802, guid: 12854a32c7cde75498c14a2f9c02e17f, type: 3}
 --- !u!54 &3040367638776149442
 Rigidbody:
   m_ObjectHideFlags: 0

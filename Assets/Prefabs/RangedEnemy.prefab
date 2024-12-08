@@ -155,13 +155,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 80
   speed: 5
-  range: 150
+  range: 100
   baseDamage: 5
-  attackCooldown: 5
-  attackCooldownDuration: 0
+  attackCooldown: 12.75
+  attackCooldownDuration: 5
   specialCooldown: 15
-  specialCooldownDuration: 0
+  specialCooldownDuration: 15
   armor: 20
+  deathEffect: {fileID: 0}
 --- !u!1 &7477301928192825509
 GameObject:
   m_ObjectHideFlags: 0

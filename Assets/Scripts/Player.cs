@@ -30,6 +30,11 @@ public class Player : MonoBehaviour
     {
         Points.Instance.LevelUp += LevelUp;
 
+        upgradeMenu = GameObject.Find("UpgradeMenu");
+        armorButton = GameObject.Find("Armor").GetComponent<Button>();
+        healthButton = GameObject.Find("Health").GetComponent<Button>();
+        damageButton = GameObject.Find("Damage").GetComponent<Button>();
+
         armorButton.onClick.AddListener(() => Upgrade("Armor"));
         healthButton.onClick.AddListener(() => Upgrade("Health"));
         damageButton.onClick.AddListener(() => Upgrade("Damage"));
