@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     // misc
     private bool isDead = false;
 
-    public void Start()
+   public void Start()
     {
         Points.Instance.LevelUp += LevelUp;
 
@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
 
         upgradeMenu.SetActive(false);
     }
+    
 
     private void Upgrade(string upgradeType)
     {

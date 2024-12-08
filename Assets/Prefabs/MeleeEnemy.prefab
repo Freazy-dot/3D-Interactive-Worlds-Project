@@ -128,11 +128,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   speed: 3
-  range: 0
-  baseDamage: 0
+  range: 2
+  baseDamage: 10
   attackCooldown: 0
   attackCooldownDuration: 1
-  specialCooldown: 15
+  specialCooldown: 0
   specialCooldownDuration: 0
   armor: 0
   deathEffect: {fileID: 9013297919108679802, guid: 12854a32c7cde75498c14a2f9c02e17f, type: 3}

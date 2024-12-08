@@ -14,6 +14,7 @@ public class MeleePlayerAttributes : Player
         animator = transform.Find("swordfix").GetComponent<Animator>();
         attackAction = inputActions.FindAction("Attack");
         specialAction = inputActions.FindAction("Interact");
+        
     }
 
     private void OnEnable()
