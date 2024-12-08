@@ -40,3 +40,17 @@ It contains character and camera movement scripts, using the transform component
 | Small Fixes and Polish                            | 1                     |
 | **ALL**                                           |   15                  |
 
+## Time Management / Oliver
+
+| Task                                           | Time it Took (in hours) |
+|------------------------------------------------|--------------------------|
+| Setting up Unity, making a project in GitHub  | 0.5                      |
+| Research and conceptualization of game idea   | 2                        |
+| Enemy / Friendly attributes; health, armor, and damage | 3                 |
+| Ranged Enemy                                   | 1                        |
+| Ranged Friendly                                | 3                        |
+| Particle Death Animation                       | 2                        |
+| Ranged Friendly Special Particle Animation    | 1                        |
+| Health Bars                                    | 2                        |
+| Main Menu and Character Select Screen         | 0.5                      |
+| **ALL**                                       | **15**                   |
