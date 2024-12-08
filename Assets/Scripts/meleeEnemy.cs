@@ -6,16 +6,18 @@ public class meleeEnemy : Enemy
     private GameObject meleePlayer;
 
 
-private void Start() 
+    private new void Start() 
     {
         meleePlayer = GameObject.FindWithTag("Player");
+
+       base.Start();
     }
     private void Update() 
     {
-      if (attackCooldown > 0)
-      {
-          attackCooldown -= Time.deltaTime;
-      }  
+        if (attackCooldown > 0)
+        {
+            attackCooldown -= Time.deltaTime;
+        }  
     }
 
     private void FixedUpdate() 

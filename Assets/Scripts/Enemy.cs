@@ -1,9 +1,12 @@
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public abstract class Enemy : MonoBehaviour
 {
+    // stats
     [SerializeField]protected int health = 100;
+    private int maxHealth;
     [SerializeField]protected int speed;
     [SerializeField]protected int range;
     [SerializeField]protected int baseDamage;
@@ -13,12 +16,22 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField]protected float specialCooldownDuration;
     [SerializeField]protected int armor; 
     // damage reduction; 100 armor = base damage; 0 armor = 2 x base damage; 200 armor = half of base damage
-   
-    [SerializeField]protected GameObject deathEffect;
+
+    // health bar
+    [SerializeField] private HealthBar healthBar;
+
+    // misc
+    [SerializeField] protected GameObject deathEffect;
     protected bool isDead = false;
     private int accumulatedDamage;
 
     public abstract void Attack();
+
+    public void Start()
+    {
+        maxHealth = health;
+        healthBar.UpdateHealth(health, maxHealth);
+    }
 
     public void TakeDamage(int damage)
     {
@@ -36,6 +49,8 @@ public abstract class Enemy : MonoBehaviour
         }
 
         Debug.Log($"{this.name} took {damage} damage, {health} health remaining.");
+
+        healthBar.UpdateHealth(health, maxHealth);
 
         if (health <= 0) {
             Die();
@@ -67,6 +82,7 @@ public abstract class Enemy : MonoBehaviour
             return;
         }
 
+        healthBar.gameObject.SetActive(false);
         renderer.enabled = false;
         collider.enabled = false;
 

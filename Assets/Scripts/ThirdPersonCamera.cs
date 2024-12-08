@@ -12,6 +12,12 @@ public class ThirdPersonCamera : MonoBehaviour
     public float yMinLimit = -20f;
     public float yMaxLimit = 80f;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
     private void Update()
     {
         currentX += Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;

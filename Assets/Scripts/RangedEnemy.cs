@@ -8,7 +8,7 @@ private GameObject target;
 private float targetUpdateCooldown = 4.0f;
 private float targetUpdateTimer;
 
-    private void Start() 
+    private new void Start() 
     {
         players = GameObject.FindGameObjectsWithTag("Player");
 
@@ -23,6 +23,8 @@ private float targetUpdateTimer;
             if (target == null) {
             target = players[Random.Range(0, players.Length)];
         }
+
+        base.Start();
     }
 
     private void FixedUpdate() 

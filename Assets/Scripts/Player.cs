@@ -54,6 +54,8 @@ public class Player : MonoBehaviour
 
         upgradeMenu.SetActive(false);
         Time.timeScale = 1.0f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void LevelUp(int points)
@@ -63,6 +65,8 @@ public class Player : MonoBehaviour
         upgradeMenu.SetActive(true);
 
         Time.timeScale = 0.0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public virtual void TakeDamage(int damage)
